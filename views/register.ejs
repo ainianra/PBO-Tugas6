@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles.css">
+    <title>Register</title>
+</head>
+<body>
+    <div class="container">
+        <h2>Register</h2>
+        <form action="/auth/register" method="POST">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" required>
+            
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" required><br>
+
+            <label for="phone">Phone</label>
+            <input type="tel" name="phone" id="phone" required><br>
+
+            <label for="instagram">Instagram</label>
+            <input type="text" name="instagram" id="instagram" required><br>
+            
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" required><br>
+
+            <label for="confirmPassword">Confirm Password</label>
+            <input type="password" name="confirmPassword" id="confirmPassword" required><br>
+
+            <button type="submit">Register</button>
+        </form>
+        <p>Already have an account? <a href="/auth/login">Login here</a></p>
+    </div>
+
+    <script>
+        document.querySelector('form').addEventListener('submit', function(event) {
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+
+            if (password !== confirmPassword) {
+                event.preventDefault(); // prevent form submission
+                alert('Passwords do not match!');
+            }
+        });
+    </script>
+</body>
+</html>
